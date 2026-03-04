@@ -1,5 +1,4 @@
-RESOURCE_GROUP=1-94f0c4d2-playground-sandbox
-CLUSTER_NAME=erijon-aks
+
 
 # Docker / local run settings
 DOCKERHUB_USER=erijonh
