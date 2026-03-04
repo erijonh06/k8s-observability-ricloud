@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: api-alerts
+  labels:
+    app: prometheus-operator
+    release: monitoring
+spec:
+  groups:
+  - name: api.rules
+    rules:
+    - alert: ApiHighCpu
+      expr: avg(container_cpu_usage_seconds_total{container="api"}) > 0.8
+      for: 1m
+      labels:
+        severity: warning
+      annotations:
+        summary: "API High CPU Usage"
